@@ -1,0 +1,280 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Contact - Rudra | Cloud & DevOps Engineer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-light" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Get In Touch</h1>
+                <p class="lead text-muted mb-5">
+                    I'm always excited to hear about new opportunities, collaborations, or just interesting conversations 
+                    about technology and innovation. Let's connect!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form & Info Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="contact-form-card">
+                    <h3 class="fw-bold mb-4">Send Me a Message</h3>
+                    
+                    {% if messages %}
+                    <div class="messages mb-4">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <form method="post" id="contact-form">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.name.id_for_label }}" class="form-label">Name *</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.name.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.email.id_for_label }}" class="form-label">Email *</label>
+                                    {{ form.email }}
+                                    {% if form.email.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.email.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="{{ form.subject.id_for_label }}" class="form-label">Subject</label>
+                                    {{ form.subject }}
+                                    {% if form.subject.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.subject.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="{{ form.message.id_for_label }}" class="form-label">Message *</label>
+                                    {{ form.message }}
+                                    {% if form.message.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.message.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="col-lg-4">
+                <div class="contact-info-card">
+                    <h3 class="fw-bold mb-4">Contact Information</h3>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Email</h6>
+                                <p class="mb-0 text-muted">rudra@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-map-marker-alt fa-2x text-success me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Location</h6>
+                                <p class="mb-0 text-muted">India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-graduation-cap fa-2x text-info me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Education Status</h6>
+                                <p class="mb-0 text-muted">Graduating 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-clock fa-2x text-warning me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Response Time</h6>
+                                <p class="mb-0 text-muted">Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="fw-bold mb-3">Connect With Me</h5>
+                    <div class="social-links">
+                        <a href="#" class="btn btn-outline-primary me-2 mb-2" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary me-2 mb-2" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary me-2 mb-2" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary mb-2" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What I'm Looking For Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">What I'm Looking For</h2>
+                <p class="lead text-muted mb-5">
+                    I'm interested in various types of opportunities and collaborations.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="opportunity-card text-center p-4 h-100">
+                    <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                    <h5>Internships & Entry-Level</h5>
+                    <p class="text-muted">
+                        Looking for opportunities to gain real-world experience in cloud computing and DevOps.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="opportunity-card text-center p-4 h-100">
+                    <i class="fas fa-users fa-3x text-success mb-3"></i>
+                    <h5>Collaborative Projects</h5>
+                    <p class="text-muted">
+                        Excited to work on open-source projects or collaborate with other developers.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="opportunity-card text-center p-4 h-100">
+                    <i class="fas fa-lightbulb fa-3x text-warning mb-3"></i>
+                    <h5>Innovation & Learning</h5>
+                    <p class="text-muted">
+                        Always open to learning new technologies and exploring innovative solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Frequently Asked Questions</h2>
+                <p class="lead text-muted mb-5">
+                    Common questions about working with me.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                What types of projects do you work on?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I specialize in cloud infrastructure, DevOps automation, and Python development. This includes AWS/Azure deployments, CI/CD pipelines, infrastructure as code, and web applications.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                Are you available for freelance work?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, I'm available for freelance projects that align with my skills and interests. I'm particularly interested in cloud migration, automation, and Python development projects.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                What's your preferred communication method?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I prefer email for initial contact, but I'm also comfortable with video calls, Slack, or other communication tools depending on the project requirements.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Start Something Amazing?</h2>
+        <p class="lead mb-4">
+            Whether you have a project in mind, want to collaborate, or just want to chat about technology, 
+            I'd love to hear from you!
+        </p>
+        <a href="#contact-form" class="btn btn-warning btn-lg">
+            <i class="fas fa-paper-plane me-2"></i>Send a Message
+        </a>
+    </div>
+</section>
+{% endblock %} 

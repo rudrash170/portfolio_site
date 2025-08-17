@@ -1,0 +1,263 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ project.title }} - Rudra | Cloud & DevOps Engineer{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="py-5 bg-light" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'core:projects' %}">Projects</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ project.title }}</li>
+                    </ol>
+                </nav>
+                
+                <div class="project-header text-center">
+                    <h1 class="display-4 fw-bold mb-3">{{ project.title }}</h1>
+                    <p class="lead text-muted mb-4">{{ project.description }}</p>
+                    
+                    <div class="project-meta mb-4">
+                        <span class="badge bg-primary me-2">
+                            <i class="fas fa-tag me-1"></i>{{ project.get_category_display }}
+                        </span>
+                        <span class="badge bg-secondary me-2">
+                            <i class="fas fa-calendar me-1"></i>{{ project.created_at|date:"M Y" }}
+                        </span>
+                        {% if project.featured %}
+                        <span class="badge bg-warning text-dark">
+                            <i class="fas fa-star me-1"></i>Featured
+                        </span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="project-links">
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" class="btn btn-outline-dark btn-lg me-3" target="_blank">
+                            <i class="fab fa-github me-2"></i>View Code
+                        </a>
+                        {% endif %}
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}" class="btn btn-primary btn-lg me-3" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'core:contact' %}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Discuss Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Image -->
+{% if project.image %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="project-image-container text-center">
+                    <img src="{{ project.image.url }}" class="img-fluid rounded shadow" alt="{{ project.title }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Project Details -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="project-content">
+                    <h3 class="fw-bold mb-4">Project Overview</h3>
+                    <p class="text-muted mb-4">{{ project.description }}</p>
+                    
+                    <h4 class="fw-bold mb-3">Key Features</h4>
+                    <ul class="feature-list mb-4">
+                        <li><i class="fas fa-check text-success me-2"></i>Scalable cloud infrastructure</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Automated deployment pipeline</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Monitoring and logging integration</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Security best practices implementation</li>
+                    </ul>
+                    
+                    <h4 class="fw-bold mb-3">Technical Implementation</h4>
+                    <p class="text-muted mb-4">
+                        This project demonstrates my expertise in cloud architecture, DevOps automation, and modern development practices. 
+                        I focused on creating a robust, scalable solution that follows industry best practices.
+                    </p>
+                    
+                    <h4 class="fw-bold mb-3">Challenges & Solutions</h4>
+                    <p class="text-muted mb-4">
+                        One of the main challenges was ensuring high availability and fault tolerance. 
+                        I solved this by implementing a multi-AZ architecture with auto-scaling groups and load balancers.
+                    </p>
+                    
+                    <h4 class="fw-bold mb-3">Learning Outcomes</h4>
+                    <p class="text-muted">
+                        This project significantly improved my understanding of cloud-native architectures, 
+                        infrastructure as code principles, and automated deployment strategies.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="project-sidebar">
+                    <!-- Tech Stack -->
+                    <div class="sidebar-card mb-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-code me-2"></i>Technology Stack
+                        </h5>
+                        <div class="tech-stack-tags">
+                            {% for tech in project.tech_stack.split %}
+                            <span class="badge bg-secondary me-1 mb-2">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <!-- Project Stats -->
+                    <div class="sidebar-card mb-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-chart-bar me-2"></i>Project Stats
+                        </h5>
+                        <div class="stats-list">
+                            <div class="stat-item d-flex justify-content-between mb-2">
+                                <span>Category:</span>
+                                <strong>{{ project.get_category_display }}</strong>
+                            </div>
+                            <div class="stat-item d-flex justify-content-between mb-2">
+                                <span>Created:</span>
+                                <strong>{{ project.created_at|date:"M Y" }}</strong>
+                            </div>
+                            <div class="stat-item d-flex justify-content-between mb-2">
+                                <span>Status:</span>
+                                <span class="badge bg-success">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Skills -->
+                    <div class="sidebar-card mb-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-tools me-2"></i>Skills Demonstrated
+                        </h5>
+                        <div class="skills-demonstrated">
+                            <span class="badge bg-primary me-1 mb-2">Cloud Architecture</span>
+                            <span class="badge bg-primary me-1 mb-2">DevOps</span>
+                            <span class="badge bg-primary me-1 mb-2">Automation</span>
+                            <span class="badge bg-primary me-1 mb-2">Python</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact CTA -->
+                    <div class="sidebar-card">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-paper-plane me-2"></i>Interested?
+                        </h5>
+                        <p class="text-muted mb-3">
+                            Want to discuss this project or work on something similar?
+                        </p>
+                        <a href="{% url 'core:contact' %}" class="btn btn-primary w-100">
+                            <i class="fas fa-envelope me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Gallery (if multiple images) -->
+{% if project.image %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-4">Project Screenshots</h3>
+                <div class="project-gallery">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <img src="{{ project.image.url }}" class="img-fluid rounded shadow" alt="{{ project.title }} - Screenshot 1">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="placeholder-image d-flex align-items-center justify-content-center bg-light rounded shadow" style="height: 200px;">
+                                <i class="fas fa-image fa-3x text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Related Projects -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-4">More Projects</h3>
+                <p class="text-muted mb-5">Check out some of my other work in similar areas.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="related-project-card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                        <h5>Cloud Infrastructure Project</h5>
+                        <p class="text-muted">Another cloud automation project showcasing different approaches.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="related-project-card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-cogs fa-3x text-success mb-3"></i>
+                        <h5>DevOps Automation</h5>
+                        <p class="text-muted">CI/CD pipeline automation with modern tools and practices.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="related-project-card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-code fa-3x text-info mb-3"></i>
+                        <h5>Python Application</h5>
+                        <p class="text-muted">Full-stack Python application with modern web technologies.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Have a Similar Project in Mind?</h2>
+        <p class="lead mb-4">
+            I'm always excited to take on new challenges and collaborate on interesting projects. 
+            Let's discuss how we can bring your ideas to life!
+        </p>
+        <a href="{% url 'core:contact' %}" class="btn btn-warning btn-lg me-3">
+            <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+        </a>
+        <a href="{% url 'core:projects' %}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-eye me-2"></i>View All Projects
+        </a>
+    </div>
+</section>
+{% endblock %} 

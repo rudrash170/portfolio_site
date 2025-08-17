@@ -1,0 +1,238 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Skills - Rudra | Cloud & DevOps Engineer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-light" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Technical Skills</h1>
+                <p class="lead text-muted mb-5">
+                    A comprehensive overview of the technologies, tools, and platforms I work with. 
+                    I'm constantly learning and expanding my skill set to stay current with industry trends.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills by Category -->
+{% if skills_by_category %}
+<section class="py-5">
+    <div class="container">
+        {% for category, skills in skills_by_category.items %}
+        <div class="skills-category mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="display-6 fw-bold mb-4 text-center">
+                        {% if category == 'cloud' %}
+                        <i class="fas fa-cloud me-3 text-primary"></i>Cloud Platforms
+                        {% elif category == 'devops' %}
+                        <i class="fas fa-cogs me-3 text-success"></i>DevOps Tools
+                        {% elif category == 'programming' %}
+                        <i class="fas fa-code me-3 text-info"></i>Programming Languages
+                        {% elif category == 'frameworks' %}
+                        <i class="fas fa-layer-group me-3 text-warning"></i>Frameworks & Libraries
+                        {% elif category == 'databases' %}
+                        <i class="fas fa-database me-3 text-danger"></i>Databases
+                        {% else %}
+                        <i class="fas fa-tools me-3 text-secondary"></i>{{ category|title }}
+                        {% endif %}
+                    </h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                {% for skill in skills %}
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            {% if skill.icon %}
+                            <i class="{{ skill.icon }} fa-2x mb-3"></i>
+                            {% else %}
+                            <i class="fas fa-check-circle fa-2x mb-3 text-success"></i>
+                            {% endif %}
+                            
+                            <h6 class="card-title mb-2">{{ skill.name }}</h6>
+                            
+                            <div class="skill-level mb-3">
+                                <span class="badge bg-primary">{{ skill.get_level_display }}</span>
+                            </div>
+                            
+                            <div class="skill-progress">
+                                <div class="progress" style="height: 6px;">
+                                    {% if skill.level == 'beginner' %}
+                                    <div class="progress-bar bg-danger" style="width: 25%"></div>
+                                    {% elif skill.level == 'intermediate' %}
+                                    <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                    {% elif skill.level == 'advanced' %}
+                                    <div class="progress-bar bg-info" style="width: 75%"></div>
+                                    {% elif skill.level == 'expert' %}
+                                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Skill Level Legend -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-4">Skill Level Guide</h3>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="level-indicator">
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-danger" style="width: 25%"></div>
+                            </div>
+                            <small class="text-muted">Beginner (25%)</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="level-indicator">
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-warning" style="width: 50%"></div>
+                            </div>
+                            <small class="text-muted">Intermediate (50%)</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="level-indicator">
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-info" style="width: 75%"></div>
+                            </div>
+                            <small class="text-muted">Advanced (75%)</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="level-indicator">
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-success" style="width: 100%"></div>
+                            </div>
+                            <small class="text-muted">Expert (100%)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Learning Journey -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">My Learning Journey</h2>
+                <p class="lead text-muted mb-5">
+                    Technology evolves rapidly, and I'm committed to continuous learning and skill development.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="learning-card p-4 h-100">
+                    <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                    <h5>Formal Education</h5>
+                    <p class="text-muted">
+                        Pursuing my degree in Computer Science with focus on cloud computing and software engineering.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="learning-card p-4 h-100">
+                    <i class="fas fa-certificate fa-3x text-success mb-3"></i>
+                    <h5>Certifications</h5>
+                    <p class="text-muted">
+                        Working towards AWS, Azure, and other industry-recognized certifications.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="learning-card p-4 h-100">
+                    <i class="fas fa-laptop-code fa-3x text-info mb-3"></i>
+                    <h5>Hands-on Projects</h5>
+                    <p class="text-muted">
+                        Building real-world projects to apply and solidify my knowledge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Current Focus -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Currently Learning</h2>
+                <p class="lead text-muted mb-5">
+                    Here's what I'm currently focusing on to expand my skill set.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="learning-focus-card p-4 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-rocket fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Kubernetes & Container Orchestration</h5>
+                            <small class="text-muted">Advanced container management and orchestration</small>
+                        </div>
+                    </div>
+                    <div class="progress mb-2" style="height: 8px;">
+                        <div class="progress-bar bg-primary" style="width: 60%"></div>
+                    </div>
+                    <small class="text-muted">60% Complete</small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="learning-focus-card p-4 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-shield-alt fa-2x text-success me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Security & Compliance</h5>
+                            <small class="text-muted">Cloud security best practices and compliance</small>
+                        </div>
+                    </div>
+                    <div class="progress mb-2" style="height: 8px;">
+                        <div class="progress-bar bg-success" style="width: 45%"></div>
+                    </div>
+                    <small class="text-muted">45% Complete</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Collaborate?</h2>
+        <p class="lead mb-4">
+            I'm always excited to work on new projects and learn new technologies. 
+            Let's discuss how we can work together!
+        </p>
+        <a href="{% url 'core:contact' %}" class="btn btn-warning btn-lg me-3">
+            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+        </a>
+        <a href="{% url 'core:projects' %}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-eye me-2"></i>View My Work
+        </a>
+    </div>
+</section>
+{% endblock %} 

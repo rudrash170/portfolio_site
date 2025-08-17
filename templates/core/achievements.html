@@ -1,0 +1,272 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Achievements - Rudra | Cloud & DevOps Engineer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-light" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Achievements & Milestones</h1>
+                <p class="lead text-muted mb-5">
+                    A collection of my accomplishments, certifications, and the milestones that mark my journey 
+                    in technology and learning.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Grid -->
+{% if achievements %}
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for achievement in achievements %}
+            <div class="col-lg-4 col-md-6">
+                <div class="achievement-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="achievement-icon mb-3">
+                            {% if achievement.category == 'certification' %}
+                            <i class="fas fa-certificate fa-3x text-primary"></i>
+                            {% elif achievement.category == 'competition' %}
+                            <i class="fas fa-trophy fa-3x text-warning"></i>
+                            {% elif achievement.category == 'project' %}
+                            <i class="fas fa-medal fa-3x text-success"></i>
+                            {% elif achievement.category == 'academic' %}
+                            <i class="fas fa-graduation-cap fa-3x text-info"></i>
+                            {% else %}
+                            <i class="fas fa-star fa-3x text-secondary"></i>
+                            {% endif %}
+                        </div>
+                        
+                        <h5 class="card-title mb-2">{{ achievement.title }}</h5>
+                        
+                        {% if achievement.issuer %}
+                        <p class="text-primary mb-2">
+                            <i class="fas fa-building me-1"></i>{{ achievement.issuer }}
+                        </p>
+                        {% endif %}
+                        
+                        <p class="card-text text-muted mb-3">{{ achievement.description|truncatewords:20 }}</p>
+                        
+                        <div class="achievement-meta mb-3">
+                            <span class="badge bg-secondary me-2">
+                                <i class="fas fa-calendar me-1"></i>
+                                {{ achievement.date|date:"M Y" }}
+                            </span>
+                            <span class="badge bg-primary">
+                                {{ achievement.get_category_display }}
+                            </span>
+                        </div>
+                        
+                        {% if achievement.certificate_url %}
+                        <a href="{{ achievement.certificate_url }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                            <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Achievement Categories -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Types of Achievements</h2>
+                <p class="lead text-muted mb-5">
+                    Different categories of accomplishments that showcase my growth and expertise.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 h-100">
+                    <i class="fas fa-certificate fa-3x text-primary mb-3"></i>
+                    <h5>Certifications</h5>
+                    <p class="text-muted">
+                        Industry-recognized certifications from leading technology platforms and organizations.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 h-100">
+                    <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                    <h5>Competitions</h5>
+                    <p class="text-muted">
+                        Awards and recognition from hackathons, coding competitions, and technical challenges.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 h-100">
+                    <i class="fas fa-medal fa-3x text-success mb-3"></i>
+                    <h5>Project Awards</h5>
+                    <p class="text-muted">
+                        Recognition for outstanding project work, innovation, and technical excellence.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 h-100">
+                    <i class="fas fa-graduation-cap fa-3x text-info mb-3"></i>
+                    <h5>Academic</h5>
+                    <p class="text-muted">
+                        Academic achievements, scholarships, and educational milestones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Learning Journey Timeline -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">My Learning Journey</h2>
+                <p class="lead text-muted mb-5">
+                    A timeline of my educational and professional development milestones.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Started Learning Python</h5>
+                                    <p class="text-muted">Began my programming journey with Python, focusing on fundamentals and problem-solving.</p>
+                                    <small class="text-muted">2022</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">First Cloud Project</h5>
+                                    <p class="text-muted">Deployed my first application to AWS, learning about cloud infrastructure and services.</p>
+                                    <small class="text-muted">2023</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">DevOps Automation</h5>
+                                    <p class="text-muted">Built my first CI/CD pipeline and started learning infrastructure as code with Terraform.</p>
+                                    <small class="text-muted">2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Current Focus</h5>
+                                    <p class="text-muted">Working towards cloud certifications and advanced DevOps practices.</p>
+                                    <small class="text-muted">2025 - Present</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Goals & Aspirations -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Goals & Aspirations</h2>
+                <p class="lead text-muted mb-5">
+                    What I'm working towards and my vision for the future.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="goal-card text-center p-4 h-100">
+                    <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                    <h5>Cloud Certifications</h5>
+                    <p class="text-muted">
+                        Working towards AWS Solutions Architect, Azure Administrator, and Google Cloud certifications.
+                    </p>
+                    <div class="progress mb-2" style="height: 8px;">
+                        <div class="progress-bar bg-primary" style="width: 60%"></div>
+                    </div>
+                    <small class="text-muted">60% Complete</small>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="goal-card text-center p-4 h-100">
+                    <i class="fas fa-rocket fa-3x text-success mb-3"></i>
+                    <h5>Open Source Contributions</h5>
+                    <p class="text-muted">
+                        Contributing to open-source projects and building a portfolio of meaningful contributions.
+                    </p>
+                    <div class="progress mb-2" style="height: 8px;">
+                        <div class="progress-bar bg-success" style="width: 40%"></div>
+                    </div>
+                    <small class="text-muted">40% Complete</small>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="goal-card text-center p-4 h-100">
+                    <i class="fas fa-users fa-3x text-warning mb-3"></i>
+                    <h5>Community Building</h5>
+                    <p class="text-muted">
+                        Building a network of tech professionals and sharing knowledge through mentoring and speaking.
+                    </p>
+                    <div class="progress mb-2" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 30%"></div>
+                    </div>
+                    <small class="text-muted">30% Complete</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Achieve Together?</h2>
+        <p class="lead mb-4">
+            I'm always looking for new challenges and opportunities to grow. 
+            Let's discuss how we can work together on something amazing!
+        </p>
+        <a href="{% url 'core:contact' %}" class="btn btn-warning btn-lg me-3">
+            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+        </a>
+        <a href="{% url 'core:projects' %}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-eye me-2"></i>View My Work
+        </a>
+    </div>
+</section>
+{% endblock %} 

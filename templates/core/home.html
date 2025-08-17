@@ -1,0 +1,206 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Rudra - Cloud & DevOps Engineer | Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center min-vh-100" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-light">
+                <h1 class="display-3 fw-bold mb-4">
+                    Hi, I'm <span class="text-warning">Rudra</span> 👋
+                </h1>
+                <h2 class="h3 mb-4 text-light">
+                    Cloud & DevOps Engineer
+                </h2>
+                <p class="lead mb-4 opacity-75">
+                    Passionate about building scalable cloud solutions, automating infrastructure, and creating efficient DevOps pipelines. 
+                    Currently a student graduating in 2026, ready to transform ideas into reality.
+                </p>
+                <div class="hero-buttons">
+                    <a href="{% url 'core:projects' %}" class="btn btn-warning btn-lg me-3 mb-2">
+                        <i class="fas fa-rocket me-2"></i>View Projects
+                    </a>
+                    <a href="{% url 'core:contact' %}" class="btn btn-outline-light btn-lg mb-2">
+                        <i class="fas fa-paper-plane me-2"></i>Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-image">
+                    <i class="fas fa-cloud fa-10x text-light opacity-25"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Summary Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">What I Do</h2>
+                <p class="lead text-muted mb-5">
+                    I specialize in cloud infrastructure, automation, and DevOps practices. From AWS to Kubernetes, 
+                    Python to Terraform, I love building robust, scalable solutions that make a difference.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="feature-card p-4 h-100">
+                    <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                    <h4>Cloud Architecture</h4>
+                    <p class="text-muted">Design and implement scalable cloud solutions using AWS, Azure, and GCP.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-card p-4 h-100">
+                    <i class="fas fa-cogs fa-3x text-success mb-3"></i>
+                    <h4>DevOps & Automation</h4>
+                    <p class="text-muted">Build CI/CD pipelines, infrastructure as code, and automated deployment systems.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-card p-4 h-100">
+                    <i class="fas fa-code fa-3x text-info mb-3"></i>
+                    <h4>Python Development</h4>
+                    <p class="text-muted">Create efficient applications, APIs, and automation scripts with Python.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+{% if featured_projects %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Featured Projects</h2>
+                <p class="lead text-muted mb-5">Check out some of my best work in cloud, DevOps, and automation.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for project in featured_projects %}
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card h-100">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    {% else %}
+                    <div class="project-placeholder d-flex align-items-center justify-content-center">
+                        <i class="fas fa-code fa-3x text-muted"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text text-muted">{{ project.description|truncatewords:20 }}</p>
+                        <div class="tech-stack mb-3">
+                            {% for tech in project.tech_stack.split|slice:":3" %}
+                            <span class="badge bg-secondary me-1">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            {% if project.github_link %}
+                            <a href="{{ project.github_link }}" class="btn btn-sm btn-outline-dark me-2" target="_blank">
+                                <i class="fab fa-github me-1"></i>Code
+                            </a>
+                            {% endif %}
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" class="btn btn-sm btn-primary" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Live
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'core:projects' %}" class="btn btn-outline-primary btn-lg">
+                View All Projects <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Skills Preview Section -->
+{% if skills %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Technical Skills</h2>
+                <p class="lead text-muted mb-5">Here's a glimpse of the technologies and tools I work with.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for skill in skills|slice:":12" %}
+            <div class="col-lg-2 col-md-3 col-6 text-center">
+                <div class="skill-item p-3">
+                    <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                    <h6 class="mb-0">{{ skill.name }}</h6>
+                    <small class="text-muted">{{ skill.get_level_display }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'core:skills' %}" class="btn btn-outline-primary btn-lg">
+                View All Skills <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Achievements Section -->
+{% if achievements %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Recent Achievements</h2>
+                <p class="lead text-muted mb-5">Milestones and certifications that mark my journey.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for achievement in achievements %}
+            <div class="col-lg-4 col-md-6">
+                <div class="achievement-card text-center p-4 h-100">
+                    <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                    <h5>{{ achievement.title }}</h5>
+                    <p class="text-muted">{{ achievement.description|truncatewords:15 }}</p>
+                    <small class="text-muted">{{ achievement.date|date:"M Y" }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'core:achievements' %}" class="btn btn-outline-primary btn-lg">
+                View All Achievements <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Work Together?</h2>
+        <p class="lead mb-4">
+            I'm always excited to take on new challenges and collaborate on interesting projects. 
+            Let's discuss how we can bring your ideas to life!
+        </p>
+        <a href="{% url 'core:contact' %}" class="btn btn-warning btn-lg">
+            <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+        </a>
+    </div>
+</section>
+{% endblock %} 

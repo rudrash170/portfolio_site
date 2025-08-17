@@ -1,0 +1,238 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About Me - Rudra | Cloud & DevOps Engineer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-light" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">About Me</h1>
+                <p class="lead text-muted mb-4">
+                    I'm a passionate Cloud & DevOps Engineer with a deep love for automation, 
+                    infrastructure as code, and building scalable solutions. Currently pursuing my 
+                    education and graduating in 2026, I'm constantly learning and exploring new technologies.
+                </p>
+                <p class="text-muted">
+                    My journey in tech started with Python programming and has evolved into a 
+                    comprehensive understanding of cloud platforms, containerization, and DevOps practices. 
+                    I believe in the power of automation to solve complex problems and create efficient systems.
+                </p>
+                {% if resume %}
+                <a href="{{ resume.file.url }}" class="btn btn-primary btn-lg mt-3" target="_blank">
+                    <i class="fas fa-download me-2"></i>Download Resume
+                </a>
+                {% endif %}
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="about-image">
+                    <i class="fas fa-user-tie fa-10x text-primary opacity-25"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+{% if experience %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Professional Experience</h2>
+                <p class="lead text-muted mb-5">My journey in the tech world so far.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="timeline">
+                    {% for exp in experience %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h5 class="card-title mb-1">{{ exp.title }}</h5>
+                                            <h6 class="text-primary mb-1">{{ exp.company }}</h6>
+                                            {% if exp.location %}
+                                            <small class="text-muted">
+                                                <i class="fas fa-map-marker-alt me-1"></i>{{ exp.location }}
+                                            </small>
+                                            {% endif %}
+                                        </div>
+                                        <div class="text-end">
+                                            <span class="badge bg-primary">{{ exp.start_date|date:"M Y" }} - 
+                                                {% if exp.current %}Present{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">{{ exp.description }}</p>
+                                    {% if exp.technologies %}
+                                    <div class="tech-tags">
+                                        {% for tech in exp.technologies.split|slice:":5" %}
+                                        <span class="badge bg-secondary me-1">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Education Section -->
+{% if education %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Education</h2>
+                <p class="lead text-muted mb-5">My academic background and achievements.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for edu in education %}
+            <div class="col-lg-6">
+                <div class="education-card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">{{ edu.degree }}</h5>
+                        <h6 class="text-primary mb-2">{{ edu.institution }}</h6>
+                        {% if edu.location %}
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-map-marker-alt me-1"></i>{{ edu.location }}
+                        </p>
+                        {% endif %}
+                        <p class="text-muted mb-3">
+                            {{ edu.start_date|date:"M Y" }} - 
+                            {% if edu.current %}Present{% else %}{{ edu.end_date|date:"M Y" }}{% endif %}
+                        </p>
+                        {% if edu.gpa %}
+                        <div class="gpa-badge">
+                            <span class="badge bg-success">GPA: {{ edu.gpa }}</span>
+                        </div>
+                        {% endif %}
+                        {% if edu.description %}
+                        <p class="card-text mt-3">{{ edu.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Skills Summary Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Core Competencies</h2>
+                <p class="lead text-muted mb-5">Areas where I excel and continue to grow.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="competency-card p-4 h-100">
+                    <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                    <h4>Cloud Architecture</h4>
+                    <p class="text-muted">
+                        Design and implement scalable cloud solutions using AWS, Azure, and GCP. 
+                        Expertise in serverless architectures, microservices, and cloud-native applications.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="competency-card p-4 h-100">
+                    <i class="fas fa-cogs fa-3x text-success mb-3"></i>
+                    <h4>DevOps & Automation</h4>
+                    <p class="text-muted">
+                        Build robust CI/CD pipelines, implement infrastructure as code with Terraform, 
+                        and automate deployment processes for seamless operations.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="competency-card p-4 h-100">
+                    <i class="fas fa-code fa-3x text-info mb-3"></i>
+                    <h4>Python Development</h4>
+                    <p class="text-muted">
+                        Develop efficient applications, APIs, and automation scripts. 
+                        Strong focus on clean code, testing, and best practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Interests Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Beyond the Code</h2>
+                <p class="lead text-muted mb-5">What keeps me inspired and motivated.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 text-center">
+                <div class="interest-card p-3">
+                    <i class="fas fa-book fa-2x text-primary mb-2"></i>
+                    <h6>Continuous Learning</h6>
+                    <small class="text-muted">Always exploring new technologies and methodologies</small>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="interest-card p-3">
+                    <i class="fas fa-users fa-2x text-success mb-2"></i>
+                    <h6>Collaboration</h6>
+                    <small class="text-muted">Love working in teams and sharing knowledge</small>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="interest-card p-3">
+                    <i class="fas fa-lightbulb fa-2x text-warning mb-2"></i>
+                    <h6>Problem Solving</h6>
+                    <small class="text-muted">Finding creative solutions to complex challenges</small>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="interest-card p-3">
+                    <i class="fas fa-rocket fa-2x text-info mb-2"></i>
+                    <h6>Innovation</h6>
+                    <small class="text-muted">Pushing boundaries and exploring new possibilities</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-light">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Let's Connect!</h2>
+        <p class="lead mb-4">
+            I'm always interested in new opportunities, collaborations, and interesting conversations 
+            about technology and innovation.
+        </p>
+        <a href="{% url 'core:contact' %}" class="btn btn-warning btn-lg me-3">
+            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+        </a>
+        <a href="{% url 'core:projects' %}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-eye me-2"></i>View My Work
+        </a>
+    </div>
+</section>
+{% endblock %} 
