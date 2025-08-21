@@ -8,19 +8,22 @@ class ContactForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Your Name'
+                'placeholder': 'Enter your full name',
+                'required': True
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Your Email'
+                'placeholder': 'your.email@example.com',
+                'required': True
             }),
             'subject': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Subject'
+                'placeholder': 'Brief subject of your message'
             }),
             'message': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 5,
-                'placeholder': 'Your Message'
+                'rows': 6,
+                'placeholder': 'Write your message here... I\'d love to hear from you!',
+                'required': True
             }),
         } 

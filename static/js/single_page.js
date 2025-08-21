@@ -2,6 +2,20 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Scroll Progress Bar
+    const scrollProgress = document.querySelector('.scroll-progress');
+    
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollProgress) {
+            scrollProgress.style.width = scrollPercent + '%';
+        }
+    }
+    
+    window.addEventListener('scroll', updateScrollProgress);
+    
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
@@ -79,25 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
-    // Typing effect for hero section
-    const heroTitle = document.querySelector('.hero-section h1');
-    if (heroTitle) {
-        const text = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                heroTitle.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-        // Start typing effect after a delay
-        setTimeout(typeWriter, 500);
-    }
-    
     // Project filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card-wrapper');
@@ -123,36 +118,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Contact form enhancement
-    const contactForm = document.querySelector('#contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
-                submitBtn.classList.remove('btn-primary');
-                submitBtn.classList.add('btn-success');
+    // Enhanced contact card interactions
+    const contactCard = document.querySelector('.contact-info-card');
+    if (contactCard) {
+        const contactItems = contactCard.querySelectorAll('.contact-item');
+        const socialLinks = contactCard.querySelectorAll('.social-links .btn');
+        
+        // Add ripple effect to contact items
+        contactItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.querySelector('a')) return; // Skip if it's a clickable item
                 
-                // Reset form after 3 seconds
+                const ripple = document.createElement('div');
+                ripple.className = 'contact-ripple';
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(0, 212, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+        
+        // Enhanced hover effects for social links
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.15) rotate(5deg)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            });
+            
+            // Add click feedback
+            link.addEventListener('click', function(e) {
+                this.style.transform = 'translateY(-2px) scale(0.95)';
                 setTimeout(() => {
-                    this.reset();
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
-                    submitBtn.classList.remove('btn-success');
-                    submitBtn.classList.add('btn-primary');
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 2000);
+                    this.style.transform = 'translateY(-5px) scale(1.15) rotate(5deg)';
+                }, 150);
+            });
         });
     }
+    
+    // Add CSS for ripple animation
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
     
     // Skill level indicators
     const skillItems = document.querySelectorAll('.skill-card');
     skillItems.forEach(item => {
-        const level = item.querySelector('.badge').textContent;
+        // Avoid adding duplicate bars if a progress or a custom bar exists
+        if (item.querySelector('.progress, .skill-level-bar')) return;
+        const levelBadge = item.querySelector('.badge');
+        if (!levelBadge) return;
+        const level = (levelBadge.textContent || '').trim();
         const levelBar = document.createElement('div');
         levelBar.className = 'skill-level-bar mt-2';
         levelBar.style.height = '4px';
@@ -172,68 +212,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             case 'intermediate':
                 levelFill.style.width = '50%';
-                levelFill.style.background = '#ffaa00';
+                levelFill.style.background = '#fbbf24';
                 break;
             case 'advanced':
                 levelFill.style.width = '75%';
-                levelFill.style.background = '#3742fa';
+                levelFill.style.background = '#1976d2';
                 break;
             case 'expert':
                 levelFill.style.width = '100%';
-                levelFill.style.background = '#00ff88';
+                levelFill.style.background = '#10b981';
                 break;
         }
-        
-        levelBar.appendChild(levelFill);
-        item.appendChild(levelBar);
-        
         // Animate skill level bar
-        setTimeout(() => {
+        // Animate width on next frame
+        requestAnimationFrame(() => {
             levelFill.style.width = levelFill.style.width;
-        }, 500);
-    });
-    
-    // Back to top button
-    const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopBtn.className = 'btn btn-primary position-fixed';
-    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; border-radius: 50%; width: 50px; height: 50px; display: none;';
-    
-    document.body.appendChild(backToTopBtn);
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
         });
-    });
-    
-    // Add loading animation to images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-    });
-    
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('.hero-section');
-        if (heroSection) {
-            const rate = scrolled * -0.5;
-            heroSection.style.transform = `translateY(${rate}px)`;
-        }
     });
     
     // Add glow effect to cards on hover
@@ -242,16 +236,13 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseenter', function() {
             this.style.boxShadow = '0 20px 40px rgba(0, 212, 255, 0.3)';
         });
-        
         card.addEventListener('mouseleave', function() {
             this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
         });
     });
-    
     // Console welcome message
     console.log('%c🌙 Welcome to Rudra\'s Dark Portfolio!', 'color: #00d4ff; font-size: 20px; font-weight: bold;');
     console.log('%c🚀 Built with Django, Bootstrap, and lots of ❤️', 'color: #0099cc; font-size: 14px;');
-    
     // Add particle effect to hero section
     createParticles();
 });
@@ -294,4 +285,4 @@ function createParticles() {
         }
     `;
     document.head.appendChild(style);
-} 
+}

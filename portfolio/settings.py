@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'compressor', # Add compressor
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,16 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Compressor settings
+COMPRESS_ENABLED = True # Set to False or not DEBUG in production
+COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_URL = STATIC_URL
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 # Media files
 MEDIA_URL = '/media/'

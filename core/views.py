@@ -37,6 +37,29 @@ def single_page(request):
             skills_by_category[skill.category] = []
         skills_by_category[skill.category].append(skill)
     
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you for your message! I\'ll get back to you soon.')
+            return redirect('single_page_root') # Redirect back to the single page root
+        else:
+            messages.error(request, 'Please correct the errors below.')
+            # If form is invalid, re-render the page with errors
+            context = {
+                'featured_projects': featured_projects,
+                'projects': projects,
+                'skills_by_category': skills_by_category,
+                'achievements': achievements,
+                'experience': experience,
+                'education': education,
+                'resume': resume,
+                'form': form, # Pass the form with errors
+            }
+            return render(request, 'core/single_page.html', context)
+    else:
+        form = ContactForm()
+    
     context = {
         'featured_projects': featured_projects,
         'projects': projects,
@@ -45,6 +68,7 @@ def single_page(request):
         'experience': experience,
         'education': education,
         'resume': resume,
+        'form': form, # Pass an empty form for GET requests
     }
     return render(request, 'core/single_page.html', context)
 

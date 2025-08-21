@@ -105,11 +105,17 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.75rem 1.5rem;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    background: #1976d2; /* Blue */
+    color: #fff;
+    border: none;
 }
 
 .hero-buttons .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(255, 152, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(25, 118, 210, 0.15);
+    background: #115293; /* Darker blue on hover */
+    color: #fff;
 }
 
 /* Feature Cards */

@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{% static 'css/dark_theme.css' %}">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
         <div class="container">
@@ -57,18 +60,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 text-light">
-                    <h1 class="display-3 fw-bold mb-4">
-                        Hi, I'm <span class="text-primary">Rudra</span> 👋
+                    <h1 class="display-3 fw-bold mb-4 animate-in">
+                        Hi, I'm <span class="text-gradient">Rudra</span> 👋
                     </h1>
-                    <h2 class="h3 mb-4 text-light">
+                    <h2 class="h3 mb-4 text-light animate-in" style="animation-delay: 0.2s">
                         Cloud & DevOps Engineer
                     </h2>
-                    <p class="lead mb-4 opacity-75">
+                    <p class="lead mb-4 opacity-75 animate-in" style="animation-delay: 0.4s">
                         Passionate about building scalable cloud solutions, automating infrastructure, and creating efficient DevOps pipelines. 
                         Currently a student graduating in 2026, ready to transform ideas into reality.
                     </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary btn-lg me-3 mb-2">
+                    <div class="hero-buttons animate-in" style="animation-delay: 0.6s">
+                        <a href="https://github.com/rudrash170" class="btn btn-primary btn-lg me-3 mb-2" target="_blank" rel="noopener">
                             <i class="fas fa-rocket me-2"></i>View Projects
                         </a>
                         <a href="#contact" class="btn btn-outline-light btn-lg mb-2">
@@ -76,7 +79,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-6 text-center animate-in" style="animation-delay: 0.8s">
                     <div class="hero-image">
                         <i class="fas fa-cloud fa-10x text-primary opacity-25"></i>
                     </div>
@@ -86,12 +89,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-5">
+    <section id="about" class="py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="display-4 fw-bold mb-4 text-light">About Me</h2>
-                    <p class="lead text-muted mb-5">
+                    <p class="lead text-light mb-4">
                         I'm a passionate Cloud & DevOps Engineer with a deep love for automation, 
                         infrastructure as code, and building scalable solutions.
                     </p>
@@ -115,7 +118,7 @@
                                                 <h5 class="card-title text-light mb-1">{{ exp.title }}</h5>
                                                 <h6 class="text-primary mb-1">{{ exp.company }}</h6>
                                                 {% if exp.location %}
-                                                <small class="text-muted">
+                                                <small class="text-light">
                                                     <i class="fas fa-map-marker-alt me-1"></i>{{ exp.location }}
                                                 </small>
                                                 {% endif %}
@@ -126,7 +129,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p class="card-text text-muted">{{ exp.description }}</p>
+                                        <p class="card-text text-light">{{ exp.description }}</p>
                                         {% if exp.technologies %}
                                         <div class="tech-tags">
                                             {% for tech in exp.technologies.split|slice:":5" %}
@@ -147,12 +150,12 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-dark">
+    <section id="skills" class="py-4 bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="display-4 fw-bold mb-4 text-light">Technical Skills</h2>
-                    <p class="lead text-muted mb-5">
+                    <p class="lead text-light mb-4">
                         A comprehensive overview of the technologies and tools I work with.
                     </p>
                 </div>
@@ -181,11 +184,11 @@
                     </div>
                 </div>
                 
-                <div class="row g-4">
+                <div class="row g-3">
                     {% for skill in skills %}
-                    <div class="col-lg-3 col-md-4 col-6">
+                    <div class="col-skill-5 col-md-4 col-6">
                         <div class="skill-card h-100">
-                            <div class="card-body text-center p-4">
+                            <div class="card-body text-center p-3">
                                 {% if skill.icon %}
                                 <i class="{{ skill.icon }} fa-2x mb-3 text-primary"></i>
                                 {% else %}
@@ -223,12 +226,12 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5">
+    <section id="projects" class="py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="display-4 fw-bold mb-4 text-light">Featured Projects</h2>
-                    <p class="lead text-muted mb-5">
+                    <p class="lead text-light mb-4">
                         A collection of my work in cloud computing, DevOps automation, and Python development.
                     </p>
                 </div>
@@ -280,13 +283,13 @@
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h5 class="card-title text-light mb-0">{{ project.title }}</h5>
                                 {% if project.featured %}
-                                <span class="badge bg-warning text-dark">
+                                <span class="badge bg-warning text-light">
                                     <i class="fas fa-star me-1"></i>Featured
                                 </span>
                                 {% endif %}
                             </div>
                             
-                            <p class="card-text text-muted">{{ project.description|truncatewords:20 }}</p>
+                            <p class="card-text text-light">{{ project.description|truncatewords:20 }}</p>
                             
                             <div class="tech-stack mb-3">
                                 {% for tech in project.tech_stack.split|slice:":4" %}
@@ -316,12 +319,12 @@
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="py-5 bg-dark">
+    <section id="achievements" class="py-4 bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="display-4 fw-bold mb-4 text-light">Achievements & Milestones</h2>
-                    <p class="lead text-muted mb-5">
+                    <p class="lead text-light mb-4">
                         A collection of my accomplishments, certifications, and the milestones that mark my journey.
                     </p>
                 </div>
@@ -350,12 +353,12 @@
                             <h5 class="card-title mb-2 text-light">{{ achievement.title }}</h5>
                             
                             {% if achievement.issuer %}
-                            <p class="text-primary mb-2">
+                            <p class="text-light mb-2">
                                 <i class="fas fa-building me-1"></i>{{ achievement.issuer }}
                             </p>
                             {% endif %}
                             
-                            <p class="card-text text-muted mb-3">{{ achievement.description|truncatewords:20 }}</p>
+                            <p class="card-text text-light mb-3">{{ achievement.description|truncatewords:20 }}</p>
                             
                             <div class="achievement-meta mb-3">
                                 <span class="badge bg-secondary me-2">
@@ -375,114 +378,30 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <!-- Contact Section - Super Compact -->
+    <section id="contact" class="py-2">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-4 fw-bold mb-4 text-light">Get In Touch</h2>
-                    <p class="lead text-muted mb-5">
-                        I'm always excited to hear about new opportunities, collaborations, or just interesting conversations 
-                        about technology and innovation.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="row g-5">
-                <!-- Contact Form -->
-                <div class="col-lg-8">
-                    <div class="contact-form-card">
-                        <h3 class="fw-bold mb-4 text-light">Send Me a Message</h3>
-                        
-                        <form method="post" id="contact-form">
-                            {% csrf_token %}
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="{{ form.name.id_for_label }}" class="form-label text-light">Name *</label>
-                                        {{ form.name }}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="{{ form.email.id_for_label }}" class="form-label text-light">Email *</label>
-                                        {{ form.email }}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="{{ form.subject.id_for_label }}" class="form-label text-light">Subject</label>
-                                        {{ form.subject }}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="{{ form.message.id_for_label }}" class="form-label text-light">Message *</label>
-                                        {{ form.message }}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        <i class="fas fa-paper-plane me-2"></i>Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+            <div class="contact-super-compact">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="contact-info-compact">
+                        <span class="fw-bold text-light">
+                            <i class="fas fa-paper-plane me-2 text-primary"></i>Let's Connect
+                        </span>
                     </div>
-                </div>
-                
-                <!-- Contact Information -->
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h3 class="fw-bold mb-4 text-light">Contact Information</h3>
-                        
-                        <div class="contact-item mb-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="fas fa-envelope fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h6 class="mb-1 text-light">Email</h6>
-                                    <p class="mb-0 text-muted">rudra@example.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item mb-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="fas fa-map-marker-alt fa-2x text-success me-3"></i>
-                                <div>
-                                    <h6 class="mb-1 text-light">Location</h6>
-                                    <p class="mb-0 text-muted">India</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item mb-4">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="fas fa-graduation-cap fa-2x text-info me-3"></i>
-                                <div>
-                                    <h6 class="mb-1 text-light">Education Status</h6>
-                                    <p class="mb-0 text-muted">Graduating 2026</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <hr class="my-4">
-                        
-                        <h5 class="fw-bold mb-3 text-light">Connect With Me</h5>
-                        <div class="social-links">
-                            <a href="#" class="btn btn-outline-primary me-2 mb-2" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary me-2 mb-2" title="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary me-2 mb-2" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary mb-2" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
+                    
+                    <div class="social-links-compact">
+                        <a href="mailto:rudra.sh170@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/rudrash170" title="GitHub" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rudrash170/" title="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/srudra170" title="Twitter" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -490,9 +409,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
+    <footer class="bg-dark text-light py-2">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2025 Rudra. All rights reserved.</p>
+            <p class="mb-0 small">&copy; 2025 Rudra. All rights reserved.</p>
         </div>
     </footer>
 
