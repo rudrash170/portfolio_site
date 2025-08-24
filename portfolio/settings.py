@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+t^=f8pw%&t@!yrq52uy$c#0cp1(sv-8pg%w3s1-p%0)k136=*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.30.130.138', 'www.rudra.codes', 'rudra.codes', 'portfolio-site-cafv.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.30.130.138', 'www.rudra.codes', 'rudra.codes', 'portfolio-site-cafv.onrender.com', 'www.portfolio-site-cafv.onrender.com']
 
 
 # Application definition
