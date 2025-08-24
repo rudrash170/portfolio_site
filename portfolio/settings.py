@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-+t^=f8pw%&t@!yrq52uy$
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*' 'localhost', '127.0.0.1', '172.30.130.138', 'www.rudra.codes', 'rudra.codes', 'portfolio-site-cafv.onrender.com', 'www.portfolio-site-cafv.onrender.com']
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '172.30.130.138', 'www.rudra.codes', 'rudra.codes', 'portfolio-site-cafv.onrender.com', 'www.portfolio-site-cafv.onrender.com']
 
 
 
