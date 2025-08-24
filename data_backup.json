@@ -1,0 +1,1156 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-08-17T21:38:22.016Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Bachelor of Science in Computer Science from JECRC University",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Institution\", \"Start date\", \"Gpa\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-08-17T21:49:02.583Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "GCP Cloud Foundations",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Issuer\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-08-17T21:49:28.093Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Python Programming",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\", \"Issuer\", \"Category\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-08-17T22:01:12.091Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Postman API Fundamentals",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Issuer\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-08-19T14:54:16.820Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Cloud Engineering Intern at Tech Solutions Inc.",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-08-19T14:54:19.789Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Student Developer at University Projects",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-08-19T14:56:06.300Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Resume - 2025-08-19",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-08-20T19:51:22.610Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Message from Jet - Portfolio Contact",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Read\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add achievement",
+    "content_type": 7,
+    "codename": "add_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change achievement",
+    "content_type": 7,
+    "codename": "change_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete achievement",
+    "content_type": 7,
+    "codename": "delete_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view achievement",
+    "content_type": 7,
+    "codename": "view_achievement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add contact message",
+    "content_type": 8,
+    "codename": "add_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change contact message",
+    "content_type": 8,
+    "codename": "change_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete contact message",
+    "content_type": 8,
+    "codename": "delete_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view contact message",
+    "content_type": 8,
+    "codename": "view_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add education",
+    "content_type": 9,
+    "codename": "add_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change education",
+    "content_type": 9,
+    "codename": "change_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete education",
+    "content_type": 9,
+    "codename": "delete_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view education",
+    "content_type": 9,
+    "codename": "view_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add experience",
+    "content_type": 10,
+    "codename": "add_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change experience",
+    "content_type": 10,
+    "codename": "change_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete experience",
+    "content_type": 10,
+    "codename": "delete_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view experience",
+    "content_type": 10,
+    "codename": "view_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add project",
+    "content_type": 11,
+    "codename": "add_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change project",
+    "content_type": 11,
+    "codename": "change_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete project",
+    "content_type": 11,
+    "codename": "delete_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view project",
+    "content_type": 11,
+    "codename": "view_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add resume",
+    "content_type": 12,
+    "codename": "add_resume"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change resume",
+    "content_type": 12,
+    "codename": "change_resume"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete resume",
+    "content_type": 12,
+    "codename": "delete_resume"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view resume",
+    "content_type": 12,
+    "codename": "view_resume"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add skill",
+    "content_type": 13,
+    "codename": "add_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change skill",
+    "content_type": 13,
+    "codename": "change_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete skill",
+    "content_type": 13,
+    "codename": "delete_skill"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view skill",
+    "content_type": 13,
+    "codename": "view_skill"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$hi1f3nsnkJBrv0ueCFxC1C$G5EwgXbEFsY8b212RKptFPFuvV90bLMIBioKQUbL224=",
+    "last_login": "2025-08-17T21:33:19.054Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-08-17T21:16:03.078Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$mI3Arx6zUWRWWDg9nwJPRB$sO679wmIGjEZ90wG9maXUCVW2GDD+5dDwKEgidZM8LY=",
+    "last_login": "2025-08-20T20:49:44.795Z",
+    "is_superuser": true,
+    "username": "rudra",
+    "first_name": "",
+    "last_name": "",
+    "email": "rudra.sh170@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-08-20T19:50:44.452Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "core",
+    "model": "achievement"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "core",
+    "model": "contactmessage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "core",
+    "model": "education"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "core",
+    "model": "experience"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "core",
+    "model": "project"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "core",
+    "model": "resume"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "core",
+    "model": "skill"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k0nqjcq0h55t37dvio8mnzf6bmpgjca9",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUUmrgxhZOcMkZ04pIASqWmnirtDpQ6w_vfeX03gZS5h6TqFMZmLcebwuwnHp9YNpAfXe7Ox1XkaxW6K3Wm3t5b0dd3dv4PCvXxrjUjkJHqNA0cPAwAQnnxOmEFUWAWTurMcM1P2QIkBhZ0jcIQo5v0BAYo4bw:1uoopn:jZzKZ_l1QH-UqbYSLPXPlqxxl_1VRzJd03MMn46fLdo",
+    "expire_date": "2025-09-03T19:50:59.954Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wrvai608gbr9oivufnxwk1pj61p9k849",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUUmrgxhZOcMkZ04pIASqWmnirtDpQ6w_vfeX03gZS5h6TqFMZmLcebwuwnHp9YNpAfXe7Ox1XkaxW6K3Wm3t5b0dd3dv4PCvXxrjUjkJHqNA0cPAwAQnnxOmEFUWAWTurMcM1P2QIkBhZ0jcIQo5v0BAYo4bw:1uopke:xeVbSt0gES_wgv5Xoyr6KLQdI9_o_6n6MXNojhARhyE",
+    "expire_date": "2025-09-03T20:49:44.800Z"
+  }
+},
+{
+  "model": "core.project",
+  "pk": 1,
+  "fields": {
+    "title": "Cloud Infrastructure Automation",
+    "description": "Automated AWS infrastructure deployment using Terraform and Ansible. Implemented CI/CD pipelines with Jenkins and created monitoring dashboards with CloudWatch.",
+    "tech_stack": "AWS Terraform Ansible Jenkins Python CloudWatch",
+    "github_link": "https://github.com/rudra/cloud-automation",
+    "live_link": "https://demo.cloud-automation.com",
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.851Z",
+    "category": "cloud",
+    "featured": true
+  }
+},
+{
+  "model": "core.project",
+  "pk": 2,
+  "fields": {
+    "title": "DevOps Pipeline Automation",
+    "description": "Built comprehensive CI/CD pipelines for microservices architecture. Integrated automated testing, security scanning, and deployment strategies.",
+    "tech_stack": "Docker Kubernetes Jenkins GitLab Python",
+    "github_link": "https://github.com/rudra/devops-pipeline",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.857Z",
+    "category": "automation",
+    "featured": true
+  }
+},
+{
+  "model": "core.project",
+  "pk": 3,
+  "fields": {
+    "title": "Python Web Application",
+    "description": "Full-stack web application built with Django and React. Features user authentication, real-time updates, and responsive design.",
+    "tech_stack": "Python Django React PostgreSQL Redis",
+    "github_link": "https://github.com/rudra/python-web-app",
+    "live_link": "https://python-web-app.herokuapp.com",
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.861Z",
+    "category": "web",
+    "featured": false
+  }
+},
+{
+  "model": "core.project",
+  "pk": 4,
+  "fields": {
+    "title": "Infrastructure Monitoring Dashboard",
+    "description": "Real-time monitoring dashboard for cloud infrastructure using Python, Flask, and various AWS services.",
+    "tech_stack": "Python Flask AWS CloudWatch Grafana",
+    "github_link": "https://github.com/rudra/monitoring-dashboard",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.865Z",
+    "category": "cloud",
+    "featured": false
+  }
+},
+{
+  "model": "core.project",
+  "pk": 5,
+  "fields": {
+    "title": "Automated Backup System",
+    "description": "Automated backup solution for databases and file systems with scheduling, encryption, and cloud storage integration.",
+    "tech_stack": "Python AWS S3 Bash Cron Encryption",
+    "github_link": "https://github.com/rudra/backup-system",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.872Z",
+    "category": "automation",
+    "featured": false
+  }
+},
+{
+  "model": "core.project",
+  "pk": 6,
+  "fields": {
+    "title": "Container Orchestration Platform",
+    "description": "Kubernetes-based platform for managing containerized applications with automated scaling and load balancing.",
+    "tech_stack": "Kubernetes Docker Helm Python Prometheus",
+    "github_link": "https://github.com/rudra/container-platform",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-17T21:14:58.879Z",
+    "category": "cloud",
+    "featured": false
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 1,
+  "fields": {
+    "name": "AWS",
+    "level": "intermediate",
+    "category": "cloud",
+    "icon": "fab fa-aws"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 2,
+  "fields": {
+    "name": "Azure",
+    "level": "intermediate",
+    "category": "cloud",
+    "icon": "fab fa-microsoft"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 3,
+  "fields": {
+    "name": "Google Cloud",
+    "level": "beginner",
+    "category": "cloud",
+    "icon": "fab fa-google"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 4,
+  "fields": {
+    "name": "Kubernetes",
+    "level": "beginner",
+    "category": "cloud",
+    "icon": "fab fa-docker"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 5,
+  "fields": {
+    "name": "Docker",
+    "level": "intermediate",
+    "category": "devops",
+    "icon": "fab fa-docker"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 6,
+  "fields": {
+    "name": "Terraform",
+    "level": "intermediate",
+    "category": "devops",
+    "icon": "fas fa-code"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 7,
+  "fields": {
+    "name": "Jenkins",
+    "level": "intermediate",
+    "category": "devops",
+    "icon": "fab fa-jenkins"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 8,
+  "fields": {
+    "name": "GitLab CI/CD",
+    "level": "intermediate",
+    "category": "devops",
+    "icon": "fab fa-gitlab"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 9,
+  "fields": {
+    "name": "Ansible",
+    "level": "beginner",
+    "category": "devops",
+    "icon": "fas fa-cogs"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 10,
+  "fields": {
+    "name": "Python",
+    "level": "advanced",
+    "category": "programming",
+    "icon": "fab fa-python"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 11,
+  "fields": {
+    "name": "JavaScript",
+    "level": "intermediate",
+    "category": "programming",
+    "icon": "fab fa-js-square"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 12,
+  "fields": {
+    "name": "Bash",
+    "level": "intermediate",
+    "category": "programming",
+    "icon": "fas fa-terminal"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 13,
+  "fields": {
+    "name": "YAML",
+    "level": "intermediate",
+    "category": "programming",
+    "icon": "fas fa-file-code"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 14,
+  "fields": {
+    "name": "Django",
+    "level": "intermediate",
+    "category": "frameworks",
+    "icon": "fab fa-python"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 15,
+  "fields": {
+    "name": "Flask",
+    "level": "intermediate",
+    "category": "frameworks",
+    "icon": "fab fa-python"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 16,
+  "fields": {
+    "name": "React",
+    "level": "beginner",
+    "category": "frameworks",
+    "icon": "fab fa-react"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 17,
+  "fields": {
+    "name": "Bootstrap",
+    "level": "intermediate",
+    "category": "frameworks",
+    "icon": "fab fa-bootstrap"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 18,
+  "fields": {
+    "name": "PostgreSQL",
+    "level": "intermediate",
+    "category": "databases",
+    "icon": "fas fa-database"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 19,
+  "fields": {
+    "name": "MongoDB",
+    "level": "beginner",
+    "category": "databases",
+    "icon": "fas fa-database"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 20,
+  "fields": {
+    "name": "Redis",
+    "level": "beginner",
+    "category": "databases",
+    "icon": "fas fa-database"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 21,
+  "fields": {
+    "name": "Git",
+    "level": "advanced",
+    "category": "tools",
+    "icon": "fab fa-git-alt"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 22,
+  "fields": {
+    "name": "Linux",
+    "level": "intermediate",
+    "category": "tools",
+    "icon": "fab fa-linux"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 23,
+  "fields": {
+    "name": "VSCode",
+    "level": "intermediate",
+    "category": "tools",
+    "icon": "fas fa-code"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 24,
+  "fields": {
+    "name": "Postman",
+    "level": "intermediate",
+    "category": "tools",
+    "icon": "fas fa-paper-plane"
+  }
+},
+{
+  "model": "core.achievement",
+  "pk": 1,
+  "fields": {
+    "title": "GCP Cloud Foundations",
+    "description": "Certified in AWS Cloud fundamentals and best practices",
+    "date": "2024-06-15",
+    "certificate_url": null,
+    "issuer": "Google Cloud Platform",
+    "category": "certification"
+  }
+},
+{
+  "model": "core.achievement",
+  "pk": 2,
+  "fields": {
+    "title": "Python Programming",
+    "description": "",
+    "date": "2024-03-20",
+    "certificate_url": null,
+    "issuer": "IBM",
+    "category": "certification"
+  }
+},
+{
+  "model": "core.achievement",
+  "pk": 3,
+  "fields": {
+    "title": "Postman API Fundamentals",
+    "description": "First place in university hackathon for innovative cloud solution",
+    "date": "2024-02-10",
+    "certificate_url": null,
+    "issuer": "Postman",
+    "category": "competition"
+  }
+},
+{
+  "model": "core.achievement",
+  "pk": 4,
+  "fields": {
+    "title": "DevOps Best Practices",
+    "description": "Completed advanced DevOps course with hands-on projects",
+    "date": "2024-01-15",
+    "certificate_url": null,
+    "issuer": "Online Learning Platform",
+    "category": "certification"
+  }
+},
+{
+  "model": "core.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "Rudra Sharma",
+    "email": "rudrasharma170@yahoo.com",
+    "subject": "Test",
+    "message": "Hello sire, big fan",
+    "created_at": "2025-08-19T14:46:36.689Z",
+    "read": false
+  }
+},
+{
+  "model": "core.contactmessage",
+  "pk": 2,
+  "fields": {
+    "name": "Jet",
+    "email": "meow@meow.meow",
+    "subject": "Portfolio Contact",
+    "message": "Meow",
+    "created_at": "2025-08-20T19:47:42.673Z",
+    "read": true
+  }
+},
+{
+  "model": "core.resume",
+  "pk": 1,
+  "fields": {
+    "title": "Resume",
+    "file": "resumes/Resume_v2.pdf",
+    "uploaded_at": "2025-08-19T14:56:06.299Z",
+    "is_active": true
+  }
+},
+{
+  "model": "core.education",
+  "pk": 1,
+  "fields": {
+    "degree": "Bachelor of Science in Computer Science",
+    "institution": "JECRC University",
+    "location": "India",
+    "start_date": "2022-09-01",
+    "end_date": null,
+    "current": true,
+    "gpa": "7.50",
+    "description": "Focusing on cloud computing, DevOps, and software engineering. Active in tech clubs and hackathons."
+  }
+}
+]
