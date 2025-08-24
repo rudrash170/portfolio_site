@@ -26,9 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-+t^=f8pw%&t@!yrq52uy$c#0cp1(sv-8pg%w3s1-p%0)k136=*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['*' 'localhost', '127.0.0.1', '172.30.130.138', 'www.rudra.codes', 'rudra.codes', 'portfolio-site-cafv.onrender.com', 'www.portfolio-site-cafv.onrender.com']
+
 
 
 # Application definition
